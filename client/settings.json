@@ -1,0 +1,8 @@
+{
+    "ns_ip": "127.0.0.1",
+    "ns_port": 9999,
+    "cacheTime": 5,
+    "usesCache": [
+        "fatorial", "soma", "subtracao", "divisao", "multiplicacao", "uolNews"
+    ]
+}
