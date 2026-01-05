@@ -1,8 +1,14 @@
 # 🧮 Calculadora Distribuída RPC
 
-> Projeto acadêmico desenvolvido para a disciplina de Sistemas Distribuídos
+Projeto acadêmico desenvolvido para a disciplina de Sistemas Distribuídos
 
 O sistema oferece, além das operações matemáticas básicas, recursos como verificação de números primos, integração com inteligência artificial e busca de notícias em tempo real. Para demonstrar o funcionamento, foi desenvolvida uma interface gráfica utilizando Streamlit.
+
+
+
+<img width="70%" alt="print_rpc" src="https://github.com/user-attachments/assets/0b756d5e-ed3c-4f0d-bcde-d1f94f6cb860"/>
+
+
 
 ## 📚 Sobre o Projeto
 
