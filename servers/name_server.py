@@ -51,7 +51,7 @@ class NameServer():
             
             self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.server.bind((self.ip, self.port))
-            print("\nName server iniciado\n")
+            print("\nName server iniciado na porta 9999")
 
             while True:
                 

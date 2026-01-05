@@ -107,14 +107,12 @@ with tab2:
         numeros = [int(x) for x in raw.split() if x.strip().isdigit()]
 
         if numeros:
+            
             with st.spinner("Carregando..."):
                 resultado = op.primes(*numeros)
             
-            st.divider()
-            cols = st.columns(4)
-            
-            import ast
             lista = ast.literal_eval(resultado)
+
             for index in range(0, len(lista)):
                 if lista[index]:
                     st.success(f"✅ {numeros[index]} é primo")

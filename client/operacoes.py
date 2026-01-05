@@ -73,7 +73,6 @@ class Operacoes:
                 if not isinstance(address, tuple):
                     raise ValueError("Resposta não é uma tupla com o endereço.")
 
-                print("Servidor obtido", address)
                 return address
             
             except socket.timeout:
