@@ -18,6 +18,7 @@ class NameServer():
             KnownedOperations.MULTIPLY: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
             KnownedOperations.NEWS: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
             KnownedOperations.PRIMES: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
+            KnownedOperations.AI_SOLVER: [Servers.SERVER_4]
         }
 
     def __pick_random_server(self, operation: KnownedOperations) -> Servers:

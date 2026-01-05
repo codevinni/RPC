@@ -95,7 +95,7 @@ class Operacoes:
             res = client.recv(4096).decode()
             self.__disconnect(client)
            
-            if name not in ["uolNews", "primes"]:
+            if name not in ["uolNews", "primes", "mathSolverAi"]:
                 value = float(res) if '.' in res else int(res)
             else:
                 value = res
@@ -157,4 +157,8 @@ class Operacoes:
 
     @useCache
     def primes(self, *n:int):
+        pass
+
+    @useCache
+    def mathSolverAi(self, problem:str):
         pass

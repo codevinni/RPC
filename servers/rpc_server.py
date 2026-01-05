@@ -90,9 +90,12 @@ class RPCServer():
                         elif op == "uolNews":
                             result = getNews()[:10]
 
+                        elif op == "mathSolverAi":
+                            if len(args) == 1:
+                                result = solve_math_problem_ai(args[0])
+
                         elif op == "primes":
                             result = check_primes(args)
-                            print(f"PRIMES: {result}")
 
                         response = str(result)
                         if op != "uolNews": self.__addToCache(signature, result)

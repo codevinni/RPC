@@ -58,7 +58,7 @@ def calculate():
 
 
 st.title("Teste RPC")
-tab1, tab2, tab3, tab4 = st.tabs(["Calculadora", "Primos", "Notícias UOL", "IA"])
+tab1, tab2, tab3, tab4 = st.tabs(["Calculadora", "Primos", "Notícias UOL", "Resolver com IA"])
 
 # Aba da calculadora
 with tab1:
@@ -99,19 +99,21 @@ with tab1:
 
 # Aba números primos
 with tab2:
+
     st.header("Verificar Números Primos")
     txt_input = st.text_area("Insira números separados por espaço ou vírgula:", "10, 11, 13, 20")
 
     if st.button("Verificar", type="primary"):
+        
         raw = txt_input.replace(",", " ")
         numeros = [int(x) for x in raw.split() if x.strip().isdigit()]
 
         if numeros:
             
             with st.spinner("Carregando..."):
-                resultado = op.primes(*numeros)
+                result = op.primes(*numeros)
             
-            lista = ast.literal_eval(resultado)
+            lista = ast.literal_eval(result)
 
             for index in range(0, len(lista)):
                 if lista[index]:
@@ -120,31 +122,50 @@ with tab2:
                     st.error(f"❌ {numeros[index]} não é primo")
 
         else:
-            st.warning("Por favor, insira números válidos.")
+            st.warning("Insira números válidos.")
+
 
 # Aba de notícias dea UOL
 with tab3:
+
     st.header("Últimas Notícias UOL")
+
     if st.button("Buscar Notícias"):
         with st.spinner("Carregando..."):
             try:
-                raw = op.uolNews()
-                # Converte string de lista para lista Python se necessário
-                lista_news = ast.literal_eval(raw) if isinstance(raw, str) else raw
-                for n in lista_news:
-                    if n: st.info(n)
-            except Exception as e:
-                st.error(f"Erro ao buscar notícias: {e}")
+                result = op.uolNews()
+                news = ast.literal_eval(result)
+
+                for n in news:
+                    st.info(n)
+
+            except Exception:
+                st.error("Erro ao buscar notícias")
+
 
 # Aba do chat com ia
 with tab4:
+
     st.header("Math Solver com IA")
-    prompt = st.chat_input("Como posso ajudar?")
+    prompt = st.chat_input("Pergunte um problema matemático")
     
     if prompt:
+
         with st.chat_message("user"):
             st.write(prompt)
             
         with st.chat_message("assistant"):
             with st.spinner("Pensando..."):
-                st.write("Resposta")
+
+                result = op.mathSolverAi(prompt)
+
+                try:
+                    response = json.loads(result)
+
+                    if response["is_math_problem"] == True:
+                        st.write(f"Resultado: {response['result']}")
+                    else:
+                        st.warning("Não é uma operação matemática possível de se resolver numericamente!")
+                
+                except Exception:
+                    st.error(f"Ocorreu um erro interno no servidor.")

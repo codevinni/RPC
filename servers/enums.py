@@ -8,6 +8,7 @@ class KnownedOperations(Enum):
     MULTIPLY = "multiplicacao"
     NEWS = "uolNews"
     PRIMES = "primes"
+    AI_SOLVER = "mathSolverAi"
 
 class Servers(Enum):
 
