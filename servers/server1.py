@@ -1,7 +1,9 @@
 from rpc_server import RPCServer
 
-s1 = RPCServer(ip="127.0.0.1", port=8501, cacheFilename="s1_cache.json", maxCacheSize=10000, 
-               allowedOps=["soma", "subtracao", "multiplicacao", "divisao", "fatorial", "uolNews", "primes"])
+if __name__ == "__main__":
+    
+    s1 = RPCServer(ip="0.0.0.0", port=8801, cacheFilename="s1_cache.json", maxCacheSize=10000, 
+                   allowedOps=["soma", "subtracao", "multiplicacao", "divisao", "fatorial"])
 
-print("\nS1 iniciado na porta 8501\n")
-s1.run()
+    print(f"\nS1 iniciado em {s1.ip}:{s1.port}\n")
+    s1.run()

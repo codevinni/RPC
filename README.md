@@ -118,16 +118,23 @@ cd servers
 python server4.py
 ```
 
-### Iniciar a Interface Gráfica (Streamlit)
+### Iniciar a Interface (Cliente)
 
-Em um novo terminal:
+#### Opção 1: App Desktop (PyQt6)
+Execute como um aplicativo nativo independente:
+```bash
+cd client
+python desktop_app.py
+```
+> ⚠️ **Atenção:** Esta opção **não funciona no WSL** (Windows Subsystem for Linux) pois depende de bibliotecas gráficas do Windows/Qt. Se estiver no WSL, use a Opção 2.
 
+#### Opção 2: Interface Web (Streamlit)
+Execute no navegador padrão:
 ```bash
 cd client
 streamlit run app.py --server.port 9898
 ```
-
-A aplicação abrirá automaticamente no navegador em `http://localhost:9898`
+A aplicação abrirá automaticamente em `http://localhost:9898`
 
 ## 🎯 Funcionalidades
 

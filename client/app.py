@@ -1,17 +1,26 @@
-import streamlit as st
-import json
 import ast
+import json
+import os
+import streamlit as st
+
 from operacoes import Operacoes
 
 st.set_page_config(page_title="RPC", layout="centered")
 
 @st.cache_resource
 def get_op():
+
     try:
-        with open("settings.json") as f:
+
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        settings_path = os.path.join(base_path, "settings.json")
+        
+        with open(settings_path) as f:
             settings = json.load(f)
             return Operacoes(**settings)
-    except Exception:
+
+    except Exception as e:
+        print(f"Erro ao carregar operações: {e}")
         return None
 
 op = get_op()

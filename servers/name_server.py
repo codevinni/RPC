@@ -7,17 +7,17 @@ class NameServer():
 
     def __init__(self):
 
-        self.ip = "127.0.0.1"
+        self.ip = "0.0.0.0"
         self.port = 9999
         self.server = None
         self.names = {
-            KnownedOperations.SUM: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
-            KnownedOperations.FATORIAL: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
-            KnownedOperations.SUBTRACTION: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
-            KnownedOperations.DIVISION: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
-            KnownedOperations.MULTIPLY: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
-            KnownedOperations.NEWS: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
-            KnownedOperations.PRIMES: [Servers.SERVER_1, Servers.SERVER_2, Servers.SERVER_3, Servers.SERVER_4],
+            KnownedOperations.SUM: [Servers.SERVER_1, Servers.SERVER_2],
+            KnownedOperations.FATORIAL: [Servers.SERVER_1, Servers.SERVER_2],
+            KnownedOperations.SUBTRACTION: [Servers.SERVER_1, Servers.SERVER_2],
+            KnownedOperations.DIVISION: [Servers.SERVER_1, Servers.SERVER_2],
+            KnownedOperations.MULTIPLY: [Servers.SERVER_1, Servers.SERVER_2],
+            KnownedOperations.NEWS: [Servers.SERVER_3],
+            KnownedOperations.PRIMES: [Servers.SERVER_3, Servers.SERVER_4],
             KnownedOperations.AI_SOLVER: [Servers.SERVER_4]
         }
 
@@ -42,7 +42,7 @@ class NameServer():
         else:
             response = b"Unkown operation"
         
-        print("   > Response: ", response.decode())
+        print(f"   > Response: {response.decode()}\n")
         self.server.sendto(response, clientAddress)
 
 
@@ -52,7 +52,7 @@ class NameServer():
             
             self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.server.bind((self.ip, self.port))
-            print("\nName server iniciado na porta 9999")
+            print(f"\nName server iniciado em {self.ip}:{self.port}")
 
             while True:
                 

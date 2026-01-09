@@ -59,19 +59,21 @@ def solve_math_problem_ai(problem: str) -> str:
 
     Determine se o problema é matemático e se pode resultar em um valor numérico único.
 
-    Utilize raciocínio lógico interno, de cálculo em cálculo, para chegar à resposta.
-    Não explique os passos da resolução nem descreva esse raciocínio, retorne apenas o resultado final. 
+    Utilize raciocínio lógico, de cálculo em cálculo, para chegar à resposta.
+    Explique os passos da resolução descrevendo o raciocínio no campo "reasoning" da resposta, retorne apenas o resultado final, no formato especificado a seguir. 
 
     A saída deve ser unicamente no formato JSON:
 
     Se for um problema matemático:
     {{
+        "reasoning": "REASONING...",
         "result": valor,
         "is_math_problem": true
     }}
 
     Se NÃO for um problema matemático:
     {{
+        "reasoning": "",
         "result": null,
         "is_math_problem": false
     }}
