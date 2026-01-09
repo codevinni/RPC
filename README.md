@@ -83,7 +83,9 @@ GEMINI_KEY=sua_chave_api_aqui
 
 ## ▶️ Como Rodar
 
-### Opção 1: Iniciar automaticamente (Recomendado)
+### Iniciar os servidores
+
+#### Opção 1: Iniciar automaticamente (Recomendado)
 
 ```bash
 cd servers
@@ -92,7 +94,7 @@ python start_servers.py
 
 Este script inicia automaticamente todos os 5 servidores.
 
-### Opção 2: Iniciar manualmente
+#### Opção 2: Iniciar manualmente
 
 Abra **5 terminais diferentes** e execute:
 
