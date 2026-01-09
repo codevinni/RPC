@@ -152,6 +152,7 @@ A aplicação abrirá automaticamente em `http://localhost:9898`
 - **Python** - Linguagem principal
 - **Sockets** (TCP/UDP) - Comunicação distribuída
 - **Streamlit** - Interface web
+- **PyQt6** - Wrapper Desktop
 - **Threading & Multiprocessing** - Concorrência
 - **Google Gemini API** - Inteligência artificial
 - **lxml & Requests** - Web scraping
